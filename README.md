@@ -2,7 +2,7 @@
 
 Muitas vezes, imaginamos que para criar jogos, é necessário usar *engines* (motores gráficos) feitos especialmente para isso. Como Unity e Unreal. Mas não. Podemos criar jogos simples de navegador, usando unicamente Javascript.
 
-Estes jogos podem tanto ser feitos com Javascript puro, ou também usando alguma biblioteca criada para criar jogos, que será o nosso caso. Usando alguma biblioteca para isso todo o processo é facilitado, pois detalhes como a colisão entre os elementos do jogo podem ser feitas mais rapidamente, sem o uso de um cáculo para isso por exemplo.
+Estes jogos podem tanto ser feitos com Javascript puro, ou também usando alguma biblioteca criada para criar jogos, que será o nosso caso. Usando alguma biblioteca para isso todo o processo é facilitado, pois detalhes como a colisão entre os elementos do jogo podem ser feitas mais rapidamente, sem o uso de um cálculo para isso por exemplo.
 
 # P5.play
 
@@ -12,7 +12,7 @@ A P5.js é uma biblioteca para a criação de gráficos. Não precisamos saber n
 
 - Para usarmos a P5.play em uma página, é bem simples, primeiro precisaremos criar uma pasta chamada `lib/` para guardar todos os arquivos dessas bibliotecas.
 
-- Primeiro, baixe a P5.js, de preferência pelo [arquivo minificado](https://github.com/processing/p5.js/releases/download/1.2.0/p5.min.js), ou caso você queria mais opções de download, você também pode acessar [a página de download da P5.js](https://p5js.org/download/)
+- Primeiro, baixe a P5.js, de preferência pelo [arquivo minificado](https://github.com/processing/p5.js/releases/download/1.2.0/p5.min.js), ou caso você queira mais opções de download, você também pode acessar [a página de download da P5.js](https://p5js.org/download/)
 
 - Depois, precisamos baixar os arquivos da P5.play. Você pode tanto clonar os arquivos [do repositório do Github da P5.play](https://github.com/molleindustria/p5.play), ou também [baixar o arquivo comprimido do repositório](https://github.com/molleindustria/p5.play/archive/master.zip)
 
@@ -48,7 +48,7 @@ Dentro do P5.play há duas funções que precisamos obrigatoriamente criar no no
 
 Setup será a função que criará o canvas do jogo, essa função irá preencher os primeiros elementos dentro do canvas. A função setup **é executada uma única vez.**
 
-Draw será a função que irá preencher o canvas após o setup, mas de maneira continua, que é 60 vezes por segundo. Logo, **é executada várias vezes, não só uma.**
+Draw será a função que irá preencher o canvas após o setup, mas de maneira contínua, que é 60 vezes por segundo. Logo, **é executada várias vezes, não só uma.**
 
 Por enquanto, tentaremos fazer um jogo simples. Um jogo onde temos um quadrado no meio da tela, que conseguimos mover usando o teclado.
 
@@ -74,7 +74,7 @@ function draw(){
 
 Agora, dentro da função `setup` precisamos primeiramente criar o canvas que armazenará todos os elementos do jogo. Podemos fazer isso com a função `createCanvas(comprimento, altura)`, colocando o comprimento e a altura em pixels.
 
-E também precisamos pintar o canvas dentro da função `draw`. Pois essa pintura deve ser feita a cada frame, garantindo que tudo que poderia ter aparecido antes na tela, seja removido, e sobreescrito por um novo conteúdo. Mais para frente você verá um exemplo prático disso. A função que usaremos será a `background(cor)`, e esta `cor` deve ser um número entre 0 e 255. Você pode [acessar esse site](https://jonasjacek.github.io/colors/) para ver essas 255 cores que você pode usar dentro da função `background`.
+E também precisamos pintar o canvas dentro da função `draw`. Pois essa pintura deve ser feita a cada frame, garantindo que tudo que poderia ter aparecido antes na tela, seja removido, e sobreescrito por um novo conteúdo. Mais para frente você verá um exemplo prático disso. A função que usaremos será a `background(cor)`, e esta `cor` deve ser um número entre 0 e 256. Você pode [acessar esse site](https://jonasjacek.github.io/colors/) para ver essas 255 cores que você pode usar dentro da função `background`.
 
 O código que devemos fazer é este:
 
@@ -98,7 +98,7 @@ Agora precisamos criar o quadrado na tela. Para isso, precisaremos criar um spri
 
 Depois disso, precisaremos criar as regras que irão controlar a movimentação do quadrado, sobre o quê cada tecla vai fazer, e o quanto que o quadrado vai se movimentar nessa ação.
 
-Primeiro teremos que criar uma variável global, que deve estar normalmente acima das funções setup e draw, que irá armazenar tudo sobre esse quadrado, com por exemplo, o nome `square`. 
+Primeiro teremos que criar uma variável global, que deve estar normalmente acima das funções setup e draw, que irá armazenar tudo sobre esse quadrado, como por exemplo, o nome `square`. 
 
 ```javascript
 
@@ -122,7 +122,7 @@ Dentro da função `setup`, teremos que adicionar no final estas três linhas:
 ```
 
 - A primeira linha cria o sprite do quadrado, nas posições 450 X e 450 Y, que seria o meio da tela.
-- A segundo linha carrega uma imagem externa, que é uma [imagem de quadro](https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/assets/square.png) que está no [repositório do github que guarda os arquivos desse artigo](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
+- A segunda linha carrega uma imagem externa, que é uma [imagem de quadrado](https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png) que está no [repositório do github que guarda os arquivos desse artigo](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
 - A terceira linha usa a variável `squareImg` que contém a imagem carregada, adicionando essa imagem ao sprite. Assim criando o quadrado na tela.
 
 Caso você tenha se perdido, a função `setup` e a parte de cima do código deve estar assim:
@@ -157,7 +157,7 @@ Com isso, o nosso jogo ficará assim:
 
 Agora vamos fazer o nosso quadrado se movimentar com WASD, que será bem simples.
 
-a P5.play fornece para nós, uma função já criada chamada `KeyDown(tecla)`, que retornara `true` se essa tecla foi pressionada, e `false` se a tecla não foi pressionada. Apenas precisamos criar condições para cada tecla (WASD), e se esse resultado da `keyDown()` for verdadeiro, mudar a posição do quadrado.
+a P5.play fornece para nós, uma função já criada chamada `KeyDown(tecla)`, que retornará `true` se essa tecla foi pressionada, e `false` se a tecla não foi pressionada. Apenas precisamos criar condições para cada tecla (WASD), e se esse resultado da `keyDown()` for verdadeiro, mudar a posição do quadrado.
 
 Isso deve ser feito dentro da função `draw`, pois é algo que deve ser feito repetidas vezes, especificadamente uma vez por frame.
 
@@ -169,7 +169,7 @@ if (keyDown('W')){
 }
 ```
 
-Agora precisamos preencher essa função com o método que vamos usar para mover o quadrado. Dentro da P5.play, podemos usar `square.position` para pegar tanto o X quanto o Y, para demonstrar isso, vamos dentro do função setup, criar uma linha apenas para teste, fazendo um console.log dentro de `square.position`.
+Agora precisamos preencher essa função com o método que vamos usar para mover o quadrado. Dentro da P5.play, podemos usar `square.position` para pegar tanto o X quanto o Y, para demonstrar isso, vamos dentro da função setup, criar uma linha apenas para teste, fazendo um console.log dentro de `square.position`.
 
 ```javascript
 function setup(){
