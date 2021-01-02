@@ -52,7 +52,7 @@ Draw será a função que irá preencher o canvas após o setup, mas de maneira 
 
 Por enquanto, tentaremos fazer um jogo simples. Um jogo onde temos um quadrado no meio da tela, que conseguimos mover usando o teclado.
 
-# Codificando o jogo dentro do P5.play 
+# Codificando o jogo dentro da P5.play 
 
 Crie um arquivo chamado `script.js`, dentro desse arquivo iremos colocar a lógica do jogo, dentro das funções `setup` e `draw`
 
