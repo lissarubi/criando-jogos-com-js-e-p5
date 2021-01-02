@@ -246,3 +246,109 @@ function draw(){
   drawSprites()
 }
 ```
+
+## Adicionando dificuldade
+
+Agora vamos adicionar um elemento de dificuldade no jogo. Vamos adicionar bolinhas que aparecem das bordas do canvas, e voam até o quadrado. E se essas bolinhas acertarem o quadrado, o jogo é perdido e a página é recarregada para uma nova partida.
+
+Podemos usar a função `setInterval` que vem no Javascript puro. Essa função vai permitir colocarmos um trecho de código, que será repetido em um intervalo que podemos personalizar.
+
+Como queremos que essa chamada do `setInterval` seja feita uma única vez, podemos fazer isso dentro da função `setup` para ser executada uma única vez.
+
+Com isso, vamos adicionar á `setup` a `setInterval` que precisamos, e criar a variável `circle` sendo global:
+
+```javascript
+var square;
+var circle; // novo código
+
+function setup(){
+  createCanvas(700, 700)
+  square = createSprite(350, 350)
+  squareImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
+  square.addImage(squareImg)
+
+  // novo código
+  setInterval(createEnemy, 1500)
+}
+```
+
+Agora, a função `createEnemy` será chamada a cada 1.5 segundos. Esse tempo você pode personalizar normalmente.
+
+Junto com a `setInterval`, precisaremos criar também uma função que crie a bolinha, em uma posição aleatória (vamos supor 4, topo-direita, topo-esquerda, baixo-direita e baixo-esquerda).
+
+No  caso, essa função é a `createEnemy`. Iremos usar o mesmo método que usamos para criar o quadrado. Mas com algumas adições:
+
+```javascript
+function createEnemy(){
+  positions = [[700, 0], [0, 700], [700, 700], [0, 700]]
+  positionRandom = positions[Math.floor(Math.random() * positions.length)];
+  circle = createSprite(positionRandom[0], positionRandom[1])
+  circleImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/circle.png')
+  circle.addImage(circleImg)
+  circle.attractionPoint(13, square.position.x, square.position.y)
+}
+```
+
+- Na primeira linha, criamos uma matriz (um vetor de vetores) com as posições possíveis da bolinha.
+- Na segunda linha, pegamos um elemento aleatório dessa lista, não se preocupe com o método, isso pode ser pego facilmente em fóruns como [Stack Overflow](https://stackoverflow.com)
+- Na terceira, criamos o sprite nessa posição X e Y que pegamos da `positionRandom`
+- Na quarta, carregamos a imagem da bola diretamente do [Github do projeto](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
+- Na quinta adicionamos essa imagem ao sprite
+- E na sexta usamos um recurso da P5.play, chamado `attractionPoint`. Que cria um ponto onde a nossa bolinha será atraida
+
+Agora abra a página, e veja o movimento que as bolinhas estão fazendo em direção ao quadrado:
+
+![Quadrado roxo em  um canvas cinza com uma bola vermelha indo em sua direção](assets/captura04.png)
+
+Agora precisamos criar o sistema de colisão, que será bem simples, vamos apenas adicionar um [try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch), que é uma estrutura que conseguimos tratar os erros, mas neste caso, vamos fazer nada caso recebermos um erro. Isso apenas vai servir para evitar que o nosso jogo trave no browser.
+
+```javascript
+function draw(){
+  background(230)
+
+  // novo código
+
+  try{
+    square.collide(circle, finishGame)
+  }catch(err){}
+
+  // fim do novo código
+
+  if (keyDown('W')){
+    square.position.y -= 5
+  }
+  if (keyDown('S')){
+    square.position.y += 5
+  }
+  if (keyDown('A')){
+    square.position.x -= 5
+  }
+  if (keyDown('D')){
+    square.position.x += 5
+  }
+
+  drawSprites()
+}
+```
+
+Usamos para isso, um recurso da P5.play, chamado `collide`. Que retorna `true` caso o quadrado tenha se colidido com a bolinha, e `false` se não colidiu. E também podemos passar uma função como argumento, que será o quê vamos fazer caso essa colisão seja verdadeira. Essa função no caso é a `finishGame`.
+
+A função `finishGame` irá remover o quadrado da tela, alertar na tela que o usuário perdeu, e recarregar a página. Dessa maneira:
+
+```javascript
+function finishGame(){
+  square.remove()
+  alert('Você Perdeu!')
+  window.location.reload()
+}
+```
+
+A única coisa que usamos fora do Javascript puro foi a função `remove()` da P5.play, que simplesmente remove um sprite da tela.
+
+E pronto! agora temos um jogo totalmente funcional, onde somos um quadrado roxo, e devemos desviar de bolinhas vermelhas que tentam nos acertar!
+
+# Links Importantes
+
+[Site e Documentação Oficial da P5.play](http://molleindustria.github.io/p5.play/)
+[Site e Documentação Oficial da P5.js](https://p5js.org/)
+[Repositório do projeto que foi feito neste tutorial](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
