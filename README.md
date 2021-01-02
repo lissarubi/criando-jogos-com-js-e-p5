@@ -24,7 +24,7 @@ p5.min.js  p5.play/
 
 # Codificando a base do projeto
 
-Crie um arquivo HTML na raiz do seu projeto, como por exemplo, `ìndex.html` e insira isso dentro do arquivo:
+Crie um arquivo HTML na raiz do seu projeto, como por exemplo, `index.html` e insira isso dentro do arquivo:
 
 ```html
 <!DOCTYPE html>
@@ -346,6 +346,14 @@ function finishGame(){
 A única coisa que usamos fora do Javascript puro foi a função `remove()` da P5.play, que simplesmente remove um sprite da tela.
 
 E pronto! agora temos um jogo totalmente funcional, onde somos um quadrado roxo, e devemos desviar de bolinhas vermelhas que tentam nos acertar!
+
+# Desafios
+
+Alguns desafios que seria recomendado de você cumprir para aumentar a sua compreensão, são:
+
+- Criar um contador de quantas vezes que quem está jogando perdeu. Isso pode ser feito tanto com a P5.play (resetando a posição dos sprites) ou usando recursos do Javascript puro (como [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage))
+
+- Criar bolinhas verdes que apareçam de tempos em tempos, e que se o quadrado colidir com alguma dessas bolinhas, incrementar seus pontos. Que serão resetados caso quem está jogando colida com uma bolinha vermelha.
 
 # Links Importantes
 
