@@ -350,5 +350,7 @@ E pronto! agora temos um jogo totalmente funcional, onde somos um quadrado roxo,
 # Links Importantes
 
 [Site e Documentação Oficial da P5.play](http://molleindustria.github.io/p5.play/)
+
 [Site e Documentação Oficial da P5.js](https://p5js.org/)
+
 [Repositório do projeto que foi feito neste tutorial](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
