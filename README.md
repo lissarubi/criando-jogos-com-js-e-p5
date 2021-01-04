@@ -50,7 +50,7 @@ Setup será a função que criará o canvas do jogo, essa função irá preenche
 
 Draw será a função que irá preencher o canvas após o setup, mas de maneira contínua, que é 60 vezes por segundo. Logo, **é executada várias vezes, não só uma.**
 
-Por enquanto, tentaremos fazer um jogo simples. Um jogo onde temos um quadrado no meio da tela, que conseguimos mover usando o teclado.
+Por enquanto, tentaremos fazer um jogo simples. Um jogo onde temos um quadrado no meio da tela, que conseguimos mover usando o teclado. E que terão bolinhas que podem colidir com esse quadrado. E se caso colidirem, o jogo será perdido e reiniciado.
 
 # Codificando o jogo dentro da P5.play 
 
