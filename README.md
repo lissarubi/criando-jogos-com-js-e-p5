@@ -1,6 +1,6 @@
 # Introdução
 
-Muitas vezes, imaginamos que para criar jogos, é necessário usar *engines* (motores gráficos) feitos especialmente para isso. Como Unity e Unreal. Mas não. Podemos criar jogos simples de navegador, usando unicamente Javascript.
+Muitas vezes, imaginamos que para criar jogos, é necessário usar *engines* (motores gráficos) super pesados e feitos especialmente para isso. Como Unity e Unreal. Mas não. Podemos criar jogos simples de navegador, usando unicamente Javascript.
 
 Estes jogos podem tanto ser feitos com Javascript puro, ou também usando alguma biblioteca criada para criar jogos, que será o nosso caso. Usando alguma biblioteca para isso todo o processo é facilitado, pois detalhes como a colisão entre os elementos do jogo podem ser feitas mais rapidamente, sem o uso de um cálculo para isso por exemplo.
 
