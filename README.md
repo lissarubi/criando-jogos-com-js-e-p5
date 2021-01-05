@@ -74,7 +74,7 @@ function draw(){
 
 Agora, dentro da função `setup` precisamos primeiramente criar o canvas que armazenará todos os elementos do jogo. Podemos fazer isso com a função `createCanvas(comprimento, altura)`, colocando o comprimento e a altura em pixels.
 
-E também precisamos pintar o canvas dentro da função `draw`. Pois essa pintura deve ser feita a cada frame, garantindo que tudo que poderia ter aparecido antes na tela, seja removido, e sobreescrito por um novo conteúdo. Mais para frente você verá um exemplo prático disso. A função que usaremos será a `background(cor)`, e esta `cor` deve ser um número entre 0 e 256. Você pode [acessar esse site](https://jonasjacek.github.io/colors/) para ver essas 255 cores que você pode usar dentro da função `background`.
+E também precisamos pintar o canvas dentro da função `draw`. Pois essa pintura deve ser feita a cada frame, garantindo que tudo que poderia ter aparecido antes na tela, seja removido, e sobreescrito por um novo conteúdo. Mais para frente você verá um exemplo prático disso. A função que usaremos será a `background(cor)`, e esta `cor` deve ser um número entre 0 e 256. Ou também usar cores específicas como `green` e `red`.
 
 O código que devemos fazer é este:
 
