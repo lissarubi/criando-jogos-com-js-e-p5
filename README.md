@@ -117,12 +117,12 @@ Dentro da função `setup`, teremos que adicionar no final estas três linhas:
 
 ```javascript
   square = createSprite(450, 450)
-  squareImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/assets/square.png')
+  squareImg = loadImage('https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/assets/square.png')
   square.addImage(squareImg)
 ```
 
 - A primeira linha cria o sprite do quadrado, nas posições 450 X e 450 Y, que seria o meio da tela.
-- A segunda linha carrega uma imagem externa, que é uma [imagem de quadrado](https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png) que está no [repositório do github que guarda os arquivos desse artigo](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
+- A segunda linha carrega uma imagem externa, que é uma [imagem de quadrado](https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png) que está no [repositório do github que guarda os arquivos desse artigo](https://github.com/lissaferreira/criando-jogos-com-js-e-p5)
 - A terceira linha usa a variável `squareImg` que contém a imagem carregada, adicionando essa imagem ao sprite. Assim criando o quadrado na tela.
 
 Caso você tenha se perdido, a função `setup` e a parte de cima do código deve estar assim:
@@ -133,7 +133,7 @@ var square
 function setup(){
   createCanvas(700, 700)
   square = createSprite(350, 350)
-  squareImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
+  squareImg = loadImage('https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
   square.addImage(squareImg)
 }
 ```
@@ -175,7 +175,7 @@ Agora precisamos preencher essa função com o método que vamos usar para mover
 function setup(){
   createCanvas(700, 700)
   square = createSprite(350, 350)
-  squareImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
+  squareImg = loadImage('https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
   square.addImage(squareImg)
 
   // novo código
@@ -264,7 +264,7 @@ var circle; // novo código
 function setup(){
   createCanvas(700, 700)
   square = createSprite(350, 350)
-  squareImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
+  squareImg = loadImage('https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/src/assets/square.png')
   square.addImage(squareImg)
 
   // novo código
@@ -283,7 +283,7 @@ function createEnemy(){
   positions = [[700, 0], [0, 700], [700, 700], [0, 700]]
   positionRandom = positions[Math.floor(Math.random() * positions.length)];
   circle = createSprite(positionRandom[0], positionRandom[1])
-  circleImg = loadImage('https://raw.githubusercontent.com/edersonferreira/criando-jogos-com-js-e-p5/main/src/assets/circle.png')
+  circleImg = loadImage('https://raw.githubusercontent.com/lissaferreira/criando-jogos-com-js-e-p5/main/src/assets/circle.png')
   circle.addImage(circleImg)
   circle.attractionPoint(13, square.position.x, square.position.y)
 }
@@ -292,7 +292,7 @@ function createEnemy(){
 - Na primeira linha, criamos uma matriz (um vetor de vetores) com as posições possíveis da bolinha.
 - Na segunda linha, pegamos um elemento aleatório dessa lista, não se preocupe com o método, isso pode ser pego facilmente em fóruns como [Stack Overflow](https://stackoverflow.com)
 - Na terceira, criamos o sprite nessa posição X e Y que pegamos da `positionRandom`
-- Na quarta, carregamos a imagem da bola diretamente do [Github do projeto](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
+- Na quarta, carregamos a imagem da bola diretamente do [Github do projeto](https://github.com/lissaferreira/criando-jogos-com-js-e-p5)
 - Na quinta adicionamos essa imagem ao sprite
 - E na sexta usamos um recurso da P5.play, chamado `attractionPoint`. Que cria um ponto onde a nossa bolinha será atraida
 
@@ -361,4 +361,4 @@ Alguns desafios que seria recomendado de você cumprir para aumentar a sua compr
 
 [Site e Documentação Oficial da P5.js](https://p5js.org/)
 
-[Repositório do projeto que foi feito neste tutorial](https://github.com/edersonferreira/criando-jogos-com-js-e-p5)
+[Repositório do projeto que foi feito neste tutorial](https://github.com/lissaferreira/criando-jogos-com-js-e-p5)
